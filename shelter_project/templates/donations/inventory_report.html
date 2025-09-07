@@ -1,0 +1,21 @@
+{% extends "donations/base.html" %}
+{% block content %}
+<h2>Inventory Report</h2>
+{% if report %}
+<table class="table table-bordered">
+  <thead><tr><th>Type</th><th>Donated</th><th>Distributed</th><th>Available</th></tr></thead>
+  <tbody>
+  {% for type, data in report.items %}
+    <tr>
+      <td>{{ type }}</td>
+      <td>{{ data.donated }}</td>
+      <td>{{ data.distributed }}</td>
+      <td>{{ data.available }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <p class="text-muted">(no data)</p>
+{% endif %}
+{% endblock %}
